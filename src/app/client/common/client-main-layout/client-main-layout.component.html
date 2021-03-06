@@ -1,0 +1,32 @@
+<nav class="navbar bg-primary">
+  <h2 routerLink="/">Movie Theater</h2>
+
+  <ul>
+    <li>
+      <!-- <div class="wrap">
+        <form>
+          <input
+            type="text"
+            id="search"
+            name="search"
+            placeholder="Search for a movie"
+          />
+          <input type="submit" id="search_submit" value="Rechercher" />
+        </form>
+      </div> -->
+      <form action="" class="search-bar">
+        <input type="search" name="search" pattern=".*\S.*" required />
+        <button class="search-btn" type="submit">
+          <span>Search</span>
+        </button>
+      </form>
+    </li>
+    <li class="li-admin" routerLinkActive="active">
+      <a (click)="goToAdmin()">Admin</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
