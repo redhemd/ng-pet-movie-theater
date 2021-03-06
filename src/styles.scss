@@ -237,6 +237,7 @@ table th {
   opacity: 0.9rem;
   margin-bottom: 1rem;
   height: 3rem;
+  // background-color: green;
 
   &.main {
     justify-content: center;
@@ -256,12 +257,25 @@ table th {
     color: #fff;
     padding: 0.45rem;
     margin: 0 0.25rem;
-    opacity: 0.7;
+    opacity: 1;
 
     &:hover {
       color: var(--light-color);
-      opacity: 1;
+      opacity: 0.7;
     }
+  }
+  // .wrap {
+  //   color: #fff;
+  //   padding: 0.45rem;
+  //   margin: 0 0.25rem;
+  //   opacity: 1;
+
+  //   &:hover {
+  //     color: var(--light-color);
+  //     opacity: 0.7;
+  //   }
+  // }
+  .search-bar {
   }
 }
 

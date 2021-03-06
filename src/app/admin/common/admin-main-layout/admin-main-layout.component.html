@@ -1,0 +1,22 @@
+<nav class="navbar bg-primary">
+  <h2 routerLink="/">Movie Theater</h2>
+
+  <ul>
+    <li routerLinkActive="active">
+      <a [routerLink]="['/admin', 'dashboard']">Dashboard</a>
+    </li>
+    <li routerLinkActive="active">
+      <a [routerLink]="['/admin', 'add']">Add Movie</a>
+    </li>
+    <li routerLinkActive="active">
+      <a [routerLink]="['/admin', 'login']">Login</a>
+    </li>
+    <li routerLinkActive="active">
+      <a href="#" (click)="logout($event)">Logout</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
