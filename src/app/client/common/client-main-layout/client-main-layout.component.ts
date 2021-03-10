@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-client-main-layout',
@@ -7,11 +8,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./client-main-layout.component.scss'],
 })
 export class ClientMainLayoutComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
 
   goToAdmin() {
-    this.router.navigate(['admin']);
+    if (this.authService.isAuthentificated()) {
+      this.router.navigate(['admin', 'dashboard']);
+    } else {
+      this.router.navigate(['admin']);
+    }
   }
 }

@@ -1,1 +1,83 @@
-<p>admin-edit-page works!</p>
+<div *ngIf="form; else loading">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <h2 class="text-center">Edit</h2>
+
+    <div class="form-control">
+      <label for="genre">Genre</label>
+      <select formControlName="genre">
+        <option value="Action">Action</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Drama">Drama</option>
+        <option value="Horror">Horror</option>
+        <option value="Fantasy">Fantasy</option>
+        <option value="Thriller">Thriller</option>
+      </select>
+      <div
+        class="validation"
+        *ngIf="form.get('genre').touched && form.get('genre').invalid"
+      >
+        <small *ngIf="form.get('genre').errors.required"
+          >Choose movie genre</small
+        >
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label for="title">Title</label>
+      <input id="title" formControlName="title" type="title" />
+
+      <div
+        class="validation"
+        *ngIf="form.get('title').touched && form.get('title').invalid"
+      >
+        <small *ngIf="form.get('title').errors.required"
+          >Enter movie title</small
+        >
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label for="year">Year</label>
+      <input id="year" formControlName="year" type="year" />
+
+      <div
+        class="validation"
+        *ngIf="form.get('year').touched && form.get('year').invalid"
+      >
+        <small *ngIf="form.get('year').errors.required">Enter movie year</small>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label for="country">Country</label>
+      <input id="country" formControlName="country" type="country" />
+
+      <div
+        class="validation"
+        *ngIf="form.get('country').touched && form.get('country').invalid"
+      >
+        <small *ngIf="form.get('country').errors.required"
+          >Enter movie country</small
+        >
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label for="poster">Poster</label>
+      <!--644x859-->
+      <quill-editor formControlName="poster"></quill-editor>
+    </div>
+
+    <button
+      class="btn btn-secondary btn-block"
+      type="submit"
+      [disabled]="form.invalid || submitted"
+    >
+      Edit movie
+    </button>
+  </form>
+</div>
+
+<ng-template #loading>
+  <p>loading...</p>
+</ng-template>

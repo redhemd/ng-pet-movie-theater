@@ -1,20 +1,25 @@
 <nav class="navbar bg-primary">
   <h2 routerLink="/">Movie Theater</h2>
 
-  <ul>
+  <ul *ngIf="authService.isAuthentificated(); else login">
     <li routerLinkActive="active">
       <a [routerLink]="['/admin', 'dashboard']">Dashboard</a>
     </li>
-    <li routerLinkActive="active">
-      <a [routerLink]="['/admin', 'add']">Add Movie</a>
-    </li>
-    <li routerLinkActive="active">
-      <a [routerLink]="['/admin', 'login']">Login</a>
+    <li>
+      <a (click)="addMovie()">Add Movie</a>
     </li>
     <li routerLinkActive="active">
       <a href="#" (click)="logout($event)">Logout</a>
     </li>
   </ul>
+
+  <ng-template #login>
+    <ul>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/admin', 'login']">Login</a>
+      </li>
+    </ul>
+  </ng-template>
 </nav>
 
 <div class="container">
