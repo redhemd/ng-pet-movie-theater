@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiKey: 'AIzaSyAj-490oJoB1QA_FCfaJp6ewTqG7_TxPbQ',
+  fbDbUrl:
+    'https://ng-pet-movie-theater-default-rtdb.europe-west1.firebasedatabase.app/',
 };
 
 /*

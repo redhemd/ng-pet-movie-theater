@@ -1,1 +1,43 @@
-<p>admin-dashboard-page works!</p>
+<div>
+  <h2 class="text-center">Dashboard of movies</h2>
+
+  <div class="form-control">
+    <input type="text" placeholder="Find a movie" />
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Genre</th>
+        <th>Title</th>
+        <th>Year</th>
+        <th>Country</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let movie of listOfMovies; let idx = index">
+        <td class="td-cell">{{ idx + 1 }}</td>
+        <td class="td-cell">{{ movie.genre }}</td>
+        <td class="td-cell">{{ movie.title }}</td>
+        <td class="td-cell">{{ movie.year }}</td>
+        <td class="td-cell">{{ movie.country }}</td>
+
+        <td class="btn-open">
+          <button
+            class="btn btn-secondary"
+            [routerLink]="['/admin', 'movie', movie.id, 'edit']"
+          >
+            Open
+          </button>
+        </td>
+        <td class="btn-delete">
+          <button class="btn btn-danger btn-delete" (click)="delete(movie.id)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
